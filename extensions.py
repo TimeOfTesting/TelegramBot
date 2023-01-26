@@ -6,7 +6,7 @@ class APIException(Exception):
     pass
 class PriceConverter:
     @staticmethod
-    def get_price(quote: float, base: float, amound: float):
+    def get_price(quote: int, base: int, amound: int):
         if quote == base:
             raise APIException(f'Невозможно перевести одинаковые валюты {base}.')
 
@@ -24,7 +24,7 @@ class PriceConverter:
             raise APIException(f'Не удалось обработать валюту {base}.')
 
         try:
-            amound == float(amound)
+            amound == amound
         except ValueError:
             raise APIException(f'Не удалось обработать количество {amound}.')
 
